@@ -85,5 +85,9 @@
       assert_equal @hand.value, 19
       @hand.add(@ace)
       assert_equal @hand.value, 20
+      @hand.add(@eight)
+      assert_equal @hand.value, 18
+      @hand.add(@eight)
+      assert_equal @hand.value, 26
     end
   end

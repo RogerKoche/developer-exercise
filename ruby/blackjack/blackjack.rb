@@ -74,15 +74,17 @@ class Hand
   end
 
   def value
-    has_ace = 0
+    ace_count = 0
     total = 0
+    i = 0
     @cards.each do |card|
       if card.value == 11
-        has_ace += 1
+        ace_count += 1
       end
       total += card.value
-      if (total > 21) & (has_ace > 0)
+      while total > 21 and i < ace_count
         total -= 10
+        i+=1
       end
     end
     total
@@ -182,6 +184,3 @@ class Game
     reset_round
   end
 end
-
-@game = Game.new
-@game.play_round
